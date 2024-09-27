@@ -59,7 +59,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Logo and title
-st.markdown("<div class='logo'><img src='https:Turkish-Airlines-symbol.png' width='120'></div>", unsafe_allow_html=True)
+st.image("Turkish-Airlines-symbol.png", width=100, use_column_width=False)
 st.markdown("<div class='title'>Turkish Airlines Innovation Terminal</div>", unsafe_allow_html=True)
 
 # Category selection
