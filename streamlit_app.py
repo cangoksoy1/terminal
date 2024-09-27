@@ -1,102 +1,35 @@
 import streamlit as st
 
-# Set page layout and configuration
-st.set_page_config(layout="wide")
+# Title and Logo
+st.markdown("<h1 style='text-align: center; color: black;'>Terminal</h1>", unsafe_allow_html=True)
+st.image("Turkish-Airlines-symbol.png", width=100, use_column_width=False)
 
-# Custom CSS for better UI
-st.markdown("""
-    <style>
-    /* Page styling */
-    body {
-        background-color: #f0f2f6;
-        font-family: "Courier New", monospace;
-    }
-    .stApp {
-        background-color: #f0f2f6;
-        padding: 20px;
-    }
-    /* Terminal box */
-    .terminal-box {
-        background-color: #2d2d2d;
-        color: white;
-        padding: 15px;
-        border-radius: 10px;
-        font-size: 16px;
-        width: 100%;
-        margin: auto;
-    }
-    /* Submission section styling */
-    .submission-card {
-        background-color: #333333;
-        color: white;
-        border-radius: 8px;
-        padding: 15px;
-        margin: 10px 0;
-    }
-    /* Header and title styling */
-    .header {
-        font-size: 24px;
-        font-weight: bold;
-        color: #ffffff;
-        text-align: center;
-    }
-    /* Auto-prioritize button styling */
-    .stButton>button {
-        background-color: #0066cc;
-        color: white;
-        font-size: 18px;
-        padding: 10px;
-        border-radius: 10px;
-    }
-    </style>
-    """, unsafe_allow_html=True)
-
-# Display the header with the logo and title
-col1, col2 = st.columns([4, 1])  # Column layout, col2 for logo
-
-with col1:
-    st.markdown('<div class="header">Terminal</div>', unsafe_allow_html=True)
-
-with col2:
-    st.image("Turkish-Airlines-symbol.png", width=100)  # Adjust the size here
-
-st.markdown("---")  # Add a separator
-
-# Simulated list of project submissions (employees only see the topics)
-submissions = [
-    {"employee": "Ahmet Yilmaz", "title": "AI-Driven Flight Scheduling Optimization", "date": "2024-09-01"},
-    {"employee": "Elif Demir", "title": "Sustainable Aviation Fuel Initiative", "date": "2024-08-25"},
-    {"employee": "Murat Kaya", "title": "Predictive Maintenance System for Engines", "date": "2024-09-05"},
-    {"employee": "Canan Tekin", "title": "In-Flight Entertainment Personalization", "date": "2024-08-30"},
-    {"employee": "Zeynep Oz", "title": "Real-time Baggage Tracking System", "date": "2024-09-10"},
-    {"employee": "Emre Aydin", "title": "Green Energy Solutions for Ground Operations", "date": "2024-09-02"},
-    {"employee": "Yasemin Korkmaz", "title": "AI-Based Customer Service Chatbot", "date": "2024-09-03"},
-    {"employee": "Ali Vural", "title": "Smart Cargo Space Utilization", "date": "2024-08-20"},
-    {"employee": "Deniz Karaman", "title": "Passenger Flow Optimization at Airports", "date": "2024-08-15"},
-    {"employee": "Mehmet Can", "title": "Dynamic Pricing for Last-Minute Tickets", "date": "2024-09-08"},
+# Simulated GPT summaries for project ideas
+projects = [
+    {"topic": "AI-Driven Flight Scheduling Optimization", "date": "2024-09-01", "summary": "Using AI to optimize flight schedules based on real-time data and passenger demand."},
+    {"topic": "Sustainable Aviation Fuel Initiative", "date": "2024-08-25", "summary": "Project to explore sustainable fuel options for reducing carbon emissions in aviation."},
+    {"topic": "Predictive Maintenance System for Engines", "date": "2024-09-05", "summary": "Implementing AI-driven predictive models to detect engine maintenance needs before failure."},
+    {"topic": "In-Flight Entertainment Personalization", "date": "2024-08-30", "summary": "Personalizing in-flight entertainment for passengers based on viewing preferences and AI recommendations."},
+    {"topic": "Real-time Baggage Tracking System", "date": "2024-09-10", "summary": "A real-time tracking solution to monitor and update passengers about their baggage location."},
+    {"topic": "Green Energy Solutions for Ground Operations", "date": "2024-09-02", "summary": "Introducing green energy systems to power airport ground operations and reduce environmental footprint."},
+    {"topic": "AI-Based Customer Service Chatbot", "date": "2024-09-03", "summary": "Deploying a chatbot powered by AI to enhance customer service and reduce wait times."},
+    {"topic": "Smart Cargo Space Utilization", "date": "2024-08-20", "summary": "Using AI and IoT to optimize cargo space and improve logistics efficiency."},
+    {"topic": "Passenger Flow Optimization at Airports", "date": "2024-08-15", "summary": "Improving passenger flow through airports using AI to reduce congestion and enhance security."},
+    {"topic": "Dynamic Pricing for Last-Minute Tickets", "date": "2024-09-08", "summary": "AI-driven dynamic pricing models to adjust prices for last-minute flight tickets based on demand."}
 ]
 
-# Streamlit UX for submission display
-st.markdown('<div class="terminal-box">', unsafe_allow_html=True)
+# Layout for project ideas
+st.markdown("<h2 style='text-align: left; color: black;'>Project Submissions</h2>", unsafe_allow_html=True)
 
-st.subheader("Innovation Project Submissions")
+# Display the projects
+for project in projects:
+    st.markdown(f"<div style='border:1px solid black; padding:10px; margin:5px;'>"
+                f"<strong>Topic:</strong> {project['topic']}<br>"
+                f"<strong>Date:</strong> {project['date']}<br>"
+                f"<strong>Summary:</strong> {project['summary']}</div>", unsafe_allow_html=True)
 
-# Displaying only topics (employees can click to reveal more)
-for submission in submissions:
-    if st.checkbox(f"{submission['title']} - {submission['date']}"):
-        st.markdown('<div class="submission-card">', unsafe_allow_html=True)
-        st.write(f"Submitted by: {submission['employee']}")
-        st.write(f"Project Title: {submission['title']}")
-        st.write(f"Date: {submission['date']}")
-        st.write(f"Description: (Submission details will go here)")
-        st.markdown('</div>', unsafe_allow_html=True)
-
-st.markdown('</div>', unsafe_allow_html=True)
-
-# Button for auto-prioritizing submissions
+# Auto-prioritize button
 if st.button("Auto-Prioritize"):
-    st.write("Prioritized Submissions (Medium and High Priority Only):")
-    for submission in submissions[:7]:  # Simulate prioritizing the top 7 submissions
-        st.write(f"{submission['title']} - {submission['date']} (High/Medium Priority)")
+    st.write("Prioritization in progress...")
 
 
