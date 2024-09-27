@@ -8,6 +8,7 @@ st.image("Turkish-Airlines-symbol.png", width=100, use_column_width=False)
 projects = [
     {"topic": "AI-Driven Flight Scheduling Optimization", "date": "2024-09-01", "summary": "Using AI to optimize flight schedules based on real-time data and passenger demand.", "category": "Flight Operations"},
     {"topic": "Sustainable Aviation Fuel Initiative", "date": "2024-08-25", "summary": "Project to explore sustainable fuel options for reducing carbon emissions in aviation.", "category": "Sustainability"},
+    {"topic": "Predictive Maintenance System for Engines", "date": "2024-09-05", "summary": "Implementing AI-driven predictive models to detect engine maintenance needs before failure.", "category": "Engineering & Maintenance"}
 ]
 
 # Create a dropdown to filter projects by category
