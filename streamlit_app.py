@@ -1,88 +1,111 @@
 import streamlit as st
 
-# CSS to style the page for a professional look
+# CSS for dashboard layout and style
 st.markdown("""
     <style>
     .main {
-        background-color: #f5f5f5;
+        background: linear-gradient(180deg, #f0f4f7, #e5e7ea);
         font-family: 'Arial', sans-serif;
     }
-    .logo {
-        text-align: center;
+    .sidebar {
+        background-color: #d92229;
+        padding: 1em;
+        color: white;
+        position: fixed;
+        height: 100%;
+        width: 250px;
+        left: 0;
+        top: 0;
     }
-    .title {
-        font-size: 2.5em;
-        font-weight: bold;
-        text-align: center;
-        color: #d92229;
+    .sidebar h2 {
+        color: white;
+        font-size: 1.5em;
+    }
+    .sidebar a {
+        color: white;
+        padding: 0.5em;
+        text-decoration: none;
+        display: block;
         margin-bottom: 1em;
     }
-    .project-card {
-        background-color: white;
-        padding: 1.5em;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        margin-bottom: 1.5em;
-    }
-    .project-title {
-        font-size: 1.2em;
+    .header {
+        padding: 20px;
+        font-size: 1.6em;
         font-weight: bold;
+        color: #d92229;
+    }
+    .dashboard {
+        margin-left: 270px;
+        padding: 20px;
+    }
+    .card {
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    .card h3 {
+        font-size: 1.3em;
         color: #333;
     }
-    .project-summary {
+    .card p {
         font-size: 0.9em;
-        color: #666;
-        margin-bottom: 0.5em;
+        color: #777;
     }
-    .category-badge {
+    .auto-prioritize {
         background-color: #d92229;
         color: white;
-        padding: 0.5em 1em;
-        border-radius: 12px;
-        font-size: 0.9em;
-        float: right;
-    }
-    .submit-button {
-        background-color: #d92229;
-        color: white;
-        padding: 0.8em 1.5em;
-        border-radius: 25px;
-        border: none;
+        padding: 10px 20px;
         font-size: 1.1em;
+        border: none;
+        border-radius: 25px;
         cursor: pointer;
         transition: background-color 0.3s;
     }
-    .submit-button:hover {
+    .auto-prioritize:hover {
         background-color: #a5181f;
     }
     </style>
 """, unsafe_allow_html=True)
 
-# Logo and title
-st.image("Turkish-Airlines-symbol.png", width=100, use_column_width=False)
-st.markdown("<div class='title'>Turkish Airlines Innovation Terminal</div>", unsafe_allow_html=True)
+# Sidebar for navigation
+st.markdown("""
+    <div class='sidebar'>
+        <h2>Categories</h2>
+        <a href='#'>Flight Operations</a>
+        <a href='#'>Ground Operations</a>
+        <a href='#'>Sustainability</a>
+        <a href='#'>In-Flight Entertainment</a>
+    </div>
+""", unsafe_allow_html=True)
 
-# Category selection
-category = st.selectbox("Select Category", ["All", "Flight Operations", "Ground Operations", "Sustainability", "In-Flight Entertainment"])
+# Header
+st.image("Turkish-Airlines-symbol.png", width=120, use_column_width=False)
+st.markdown("<div class='header'>Turkish Airlines Innovation Terminal</div>", unsafe_allow_html=True)
 
-# Sample project submissions (with cards)
+# Dashboard content
+st.markdown("<div class='dashboard'>", unsafe_allow_html=True)
+
+# Displaying project submissions in card style
 projects = [
     {"name": "AI-Driven Flight Scheduling Optimization", "date": "2024-09-01", "summary": "Using AI to optimize flight schedules based on real-time data and passenger demand.", "category": "Flight Operations"},
     {"name": "Sustainable Aviation Fuel Initiative", "date": "2024-08-25", "summary": "Exploring sustainable fuel options for reducing carbon emissions.", "category": "Sustainability"}
 ]
 
-# Display the projects with the enhanced layout
+# Displaying projects in cards with the new layout
 for project in projects:
-    if category == "All" or category == project["category"]:
-        st.markdown(f"""
-            <div class='project-card'>
-                <div class='project-title'>{project['name']}</div>
-                <div class='category-badge'>{project['category']}</div>
-                <div class='project-summary'><strong>Date:</strong> {project['date']}</div>
-                <div class='project-summary'><strong>Summary:</strong> {project['summary']}</div>
-            </div>
-        """, unsafe_allow_html=True)
+    st.markdown(f"""
+        <div class='card'>
+            <h3>{project['name']}</h3>
+            <p><strong>Date:</strong> {project['date']}</p>
+            <p><strong>Summary:</strong> {project['summary']}</p>
+        </div>
+    """, unsafe_allow_html=True)
 
 # Auto-Prioritize Button
-if st.button("Auto-Prioritize", key="auto_prioritize"):
-    st.write("Submissions have been prioritized based on relevance.")
+if st.button("Auto-Prioritize", key="auto_prioritize", help="Prioritize submissions based on relevance"):
+    st.write("Submissions have been prioritized.")
+
+st.markdown("</div>", unsafe_allow_html=True)
