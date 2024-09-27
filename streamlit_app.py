@@ -2,7 +2,7 @@ import streamlit as st
 
 # Title and Logo
 st.markdown("<h1 style='text-align: center; color: black;'>Terminal</h1>", unsafe_allow_html=True)
-st.image("path/to/Turkish-Airlines-symbol.png", width=100, use_column_width=False)
+st.image("Turkish-Airlines-symbol.png", width=100, use_column_width=False)
 
 # Simulated GPT summaries for project ideas with categories
 projects = [
