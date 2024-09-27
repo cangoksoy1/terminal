@@ -82,7 +82,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Header
-st.image("terminal.png", width=200, use_column_width=False)
+st.image("terminal.png", width=300, use_column_width=False)
 
 # Dashboard content
 st.markdown("<div class='dashboard'>", unsafe_allow_html=True)
