@@ -67,22 +67,61 @@ st.markdown("""
     .auto-prioritize:hover {
         background-color: #a5181f;
     }
+    .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+    }
+    .topbar .nav {
+        display: flex;
+        gap: 1em;
+    }
+    .topbar .nav a {
+        font-weight: bold;
+        color: #333;
+        text-decoration: none;
+        font-size: 1.2em;
+    }
+    .category-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 15px;
+        margin-top: 20px;
+    }
+    .category-item {
+        background-color: white;
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+    }
     </style>
 """, unsafe_allow_html=True)
 
-# Sidebar for navigation
+# Header with Terminal Logo
 st.markdown("""
-    <div class='sidebar'>
-        <h2>Categories</h2>
-        <a href='#'>Flight Operations</a>
-        <a href='#'>Ground Operations</a>
-        <a href='#'>Sustainability</a>
-        <a href='#'>In-Flight Entertainment</a>
+    <div class="topbar">
+        <img src="terminal.png" width="200">
+        <div class="nav">
+            <a href="#">Analytics</a>
+            <a href="#">Reports</a>
+            <a href="#">Notes</a>
+        </div>
     </div>
 """, unsafe_allow_html=True)
 
-# Header
-st.image("terminal.png", width=300, use_column_width=False)
+# Categories as a grid layout
+st.markdown("""
+    <h2 style="text-align:center; margin-top: 20px;">Select Categories</h2>
+    <div class="category-grid">
+        <div class="category-item">Flight Operations</div>
+        <div class="category-item">Ground Operations</div>
+        <div class="category-item">Sustainability</div>
+        <div class="category-item">In-Flight Entertainment</div>
+    </div>
+""", unsafe_allow_html=True)
 
 # Dashboard content
 st.markdown("<div class='dashboard'>", unsafe_allow_html=True)
