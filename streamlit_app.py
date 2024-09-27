@@ -8,14 +8,6 @@ st.image("Turkish-Airlines-symbol.png", width=100, use_column_width=False)
 projects = [
     {"topic": "AI-Driven Flight Scheduling Optimization", "date": "2024-09-01", "summary": "Using AI to optimize flight schedules based on real-time data and passenger demand.", "category": "Flight Operations"},
     {"topic": "Sustainable Aviation Fuel Initiative", "date": "2024-08-25", "summary": "Project to explore sustainable fuel options for reducing carbon emissions in aviation.", "category": "Sustainability"},
-    {"topic": "Predictive Maintenance System for Engines", "date": "2024-09-05", "summary": "Implementing AI-driven predictive models to detect engine maintenance needs before failure.", "category": "Engineering & Maintenance"},
-    {"topic": "In-Flight Entertainment Personalization", "date": "2024-08-30", "summary": "Personalizing in-flight entertainment for passengers based on viewing preferences and AI recommendations.", "category": "In-Flight Entertainment"},
-    {"topic": "Real-time Baggage Tracking System", "date": "2024-09-10", "summary": "A real-time tracking solution to monitor and update passengers about their baggage location.", "category": "Ground Operations"},
-    {"topic": "Green Energy Solutions for Ground Operations", "date": "2024-09-02", "summary": "Introducing green energy systems to power airport ground operations and reduce environmental footprint.", "category": "Ground Operations"},
-    {"topic": "AI-Based Customer Service Chatbot", "date": "2024-09-03", "summary": "Deploying a chatbot powered by AI to enhance customer service and reduce wait times.", "category": "Customer Service"},
-    {"topic": "Smart Cargo Space Utilization", "date": "2024-08-20", "summary": "Using AI and IoT to optimize cargo space and improve logistics efficiency.", "category": "Logistics"},
-    {"topic": "Passenger Flow Optimization at Airports", "date": "2024-08-15", "summary": "Improving passenger flow through airports using AI to reduce congestion and enhance security.", "category": "Ground Operations"},
-    {"topic": "Dynamic Pricing for Last-Minute Tickets", "date": "2024-09-08", "summary": "AI-driven dynamic pricing models to adjust prices for last-minute flight tickets based on demand.", "category": "Revenue Management"}
 ]
 
 # Create a dropdown to filter projects by category
